@@ -11,17 +11,18 @@ class Word:
         self.wnset = ""
         self.pos = ""
         self.definitionList = {}
-        self.getPOS(self)
-        self.getSynAnt(self)
+        self.get_pos(self)
+        self.get_syn_ant_def(self)
 
-    #gets the nltk POS and then uses the mapper function to map to wordnet POS
+    # gets the nltk POS and then uses the mapper function to map to wordnet POS
     @staticmethod
-    def getPOS(word):
+    def get_pos(word):
         tag = nltk.pos_tag(word.text.split(" "))[0][1]
-        word.pos = word.wnposmapper(tag)
+        word.pos = word.wn_pos_mapper(tag)
 
-    #maps nltk POS tags to wordnet POS tags
-    def wnposmapper(self, tag):
+    # maps nltk POS tags to wordnet POS tags
+    @staticmethod
+    def wn_pos_mapper(tag):
         if tag.startswith('J'):
             return wordnet.ADJ
         elif tag.startswith('V'):
@@ -35,19 +36,14 @@ class Word:
         else:
             return ''
 
-    #getSynAnt will use nltk wordnet to find synonyms and antonyms
+    # getSynAnt will use nltk wordnet to find synonyms and antonyms
     @staticmethod
-    def getSynAnt(word):
-        #get synsets for word
+    def get_syn_ant_def(word):
+        # get synsets for word
         ssets = wordnet.synsets(word.text)
-
         for syns in ssets:
             for synonym in syns.lemmas():
                 word.synonyms.append(synonym.name())
-
                 word.definitionList[syns] = syns.definition()
-
                 if synonym.antonyms():
                     word.antonyms.append(synonym.antonyms()[0].name())
-
-
