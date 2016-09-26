@@ -36,7 +36,7 @@ class Word:
         else:
             return ''
 
-    # getSynAnt will use nltk wordnet to find synonyms and antonyms
+    # this method will use nltk wordnet to find synonyms, antonyms, and definition for stored word
     @staticmethod
     def get_syn_ant_def(word):
         # get synsets for word
@@ -47,3 +47,4 @@ class Word:
                 word.definitionList[syns] = syns.definition()
                 if synonym.antonyms():
                     word.antonyms.append(synonym.antonyms()[0].name())
+                    
