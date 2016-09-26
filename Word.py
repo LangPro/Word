@@ -47,4 +47,3 @@ class Word:
                 word.definitionList[syns] = syns.definition()
                 if synonym.antonyms():
                     word.antonyms.append(synonym.antonyms()[0].name())
-                    
