@@ -10,7 +10,7 @@ class Word:
         self.antonyms = []
         self.wnset = ""
         self.pos = ""
-        self.definitionList = {}
+        self.definitionDict = {}
         self.get_pos(self)
         self.get_syn_ant_def(self)
 
@@ -44,6 +44,6 @@ class Word:
         for syns in ssets:
             for synonym in syns.lemmas():
                 word.synonyms.append(synonym.name())
-                word.definitionList[syns] = syns.definition()
+                word.definitionDict[syns] = syns.definition()
                 if synonym.antonyms():
                     word.antonyms.append(synonym.antonyms()[0].name())
