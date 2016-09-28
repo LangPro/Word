@@ -7,8 +7,10 @@ To use this class simply call:
 
 This will store the word "test" inside the Word object. You can access the word and all its attributed by using commands like:
 
-`test.synonyms
-test.definitionList`
+```
+test.synonyms
+test.definitionList
+```
 
 The Word class currently contains the following attributes useful in NLP:
 
