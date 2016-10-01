@@ -24,4 +24,4 @@ The Word class currently contains the following attributes useful in NLP:
 
 `definitionDict`: A dictionary of definitions, keyed on the WordNet synonym set.
 
-'soundex': The soundex representation of the word's text attribute.
+`soundex`: The soundex representation of the word's text attribute.
