@@ -47,3 +47,21 @@ class Word:
                 word.definitionDict[syns] = syns.definition()
                 if synonym.antonyms():
                     word.antonyms.append(synonym.antonyms()[0].name())
+
+    # this method will return the output of the famous soundEx algorithm for the given text
+    def soundex(self):
+        # Drop letters
+        drop_letters = ["a", "e", "h", "i", "o", "u", "w", "y"]
+        # Number-character map
+        number_character_map = [['b', 'f', 'p', 'v'], ['c', 'g', 'j', 'k', 'q', 's', 'x', 'z'],
+                                ['d', 't'], ['l'], ['m', 'n'], ['r']]
+        final_word = self.text[0]
+        not_dropped = [letter for letter in self.text[1:] if letter not in drop_letters]
+        for letter in not_dropped:
+            for index in range(len(number_character_map)):
+                if letter in number_character_map[index]:
+                    final_word += str(index+1)
+        if len(final_word) > 4:
+            return final_word[0:4]
+        else:
+            return final_word + ("0" * (4-len(final_word)))
