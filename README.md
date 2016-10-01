@@ -23,3 +23,5 @@ The Word class currently contains the following attributes useful in NLP:
 `pos`: The WordNet part of speech tag.
 
 `definitionDict`: A dictionary of definitions, keyed on the WordNet synonym set.
+
+'soundex': The soundex representation of the word's text attribute.
