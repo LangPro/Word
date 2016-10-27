@@ -11,6 +11,7 @@ class Word:
         self.wnset = ""
         self.pos = ""
         self.lemma = ""
+        self.lemma = ""
         self.definitionDict = {}
         self.get_pos(self)
         self.get_syn_ant_def(self)
@@ -50,8 +51,8 @@ class Word:
                 if synonym.antonyms():
                     word.antonyms.append(synonym.antonyms()[0].name())
 
-    @staticmethod
     # this function will use the wordnet library to lemmatize the word
+    @staticmethod
     def lemmatize(word):
         lemmatizer = WordNetLemmatizer()
         if word.pos != '':
