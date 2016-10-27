@@ -3,6 +3,7 @@ This repo will hold the Word class and associated functions for statistical NLP.
 
 To use this class simply call:
 
+<<<<<<< HEAD
 'test = Word("test")'
 
 This will store the word "test" inside the Word object. You can access the word and all its attributed by using commands like:
@@ -16,3 +17,29 @@ The Word class currently contains the following attributes useful in NLP:
 antonyms': A list of antonyms based on WordNet.
 'pos': The WordNet part of speech tag.
 'definitionDict': A dictionary of definitions, keyed on the WordNet synonym set.
+=======
+`test = Word("test")`
+
+This will store the word "test" inside the Word object. You can access the word and all its attributed by using commands like:
+
+```
+test.synonyms
+test.definitionList
+```
+
+The Word class currently contains the following attributes useful in NLP:
+
+`text`: which contains the initializing word.
+
+`synonyms`: A list of synonyms based on WordNet.
+
+`antonyms`: A list of antonyms based on WordNet.
+
+`pos`: The WordNet part of speech tag.
+
+`definitionDict`: A dictionary of definitions, keyed on the WordNet synonym set.
+
+`soundex`: The soundex representation of the word's text attribute.
+
+`lemmatize`: This method will find the lemma of the word based on word net. This will be held within the `lemma` attribute of the Word class.
+>>>>>>> bed7897f7a5953cda7c4c444f5631eee570f17f1
