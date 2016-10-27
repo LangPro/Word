@@ -10,9 +10,11 @@ class Word:
         self.antonyms = []
         self.wnset = ""
         self.pos = ""
+        self.lemma = ""
         self.definitionDict = {}
         self.get_pos(self)
         self.get_syn_ant_def(self)
+        self.lemmatize(self)
 
     # gets the nltk POS and then uses the mapper function to map to wordnet POS
     @staticmethod
@@ -47,6 +49,14 @@ class Word:
                 word.definitionDict[syns] = syns.definition()
                 if synonym.antonyms():
                     word.antonyms.append(synonym.antonyms()[0].name())
+
+    @staticmethod
+    def lemmatize(word):
+        lemmatizer = WordNetLemmatizer()
+        if word.pos != '':
+            word.lemma = lemmatizer.lemmatize(word.text, word.pos)
+        else:
+            word.lemma = lemmatizer.lemmatize(word.text)
 
     # this method returns the output of the famous soundEx algorithm (Odell and Russell, 1922; Knuth 1973) for the given text
     def soundex(self):
